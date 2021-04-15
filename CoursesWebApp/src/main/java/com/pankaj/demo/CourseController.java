@@ -11,21 +11,21 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CourseController {
 
-//	@RequestMapping("/courses")
-//	public ModelAndView course(@RequestParam("cname") String courseName) {
-//		
-//		ModelAndView mv = new ModelAndView(); // create model view object i.e mv
-//		mv.addObject("cname", courseName); // use ${cname} in course.jsp
-//		mv.setViewName("course"); // set a viewName where jsp file will be shown as o/p
-//		return mv;
-//	}
-	
-	
 	@RequestMapping("/courses")
-	public String course(String cname, HttpSession session) {
-		session.setAttribute("cname", cname);  // use ${cname} in course.jsp
-		return "course"; // .jsp
+	public ModelAndView course(@RequestParam("cname") String courseName) {
+		
+		ModelAndView mv = new ModelAndView(); // create model view object i.e mv
+		mv.addObject("cname", courseName); // use ${cname} in course.jsp
+		mv.setViewName("course"); // set a viewName where jsp file will be shown as o/p
+		return mv;
 	}
+	
+	
+// 	@RequestMapping("/courses")
+// 	public String course(String cname, HttpSession session) {
+// 		session.setAttribute("cname", cname);  // use ${cname} in course.jsp
+// 		return "course"; // .jsp
+// 	}
 	
 	
 }
